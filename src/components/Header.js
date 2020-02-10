@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 function Header() {
     return (
@@ -9,11 +10,11 @@ function Header() {
                 <img src="https://icon.now.sh/ycombinator/fff" alt="" className="header-logo"/>
                 HackerNews
                 </span>
-                <a href="/" class="header-link">Top</a>    
-                <a href="/new" class="header-link">New</a>
-                <a href="/ask" class="header-link">Ask</a>    
-                <a href="/show" class="header-link">Show</a>
-                <a href="/favorites" class="header-link">Favorites</a>
+                <Link to="/" class="header-link">Top</Link>    
+                <Link to="/new" class="header-link">New</Link>
+                <Link to="/ask" class="header-link">Ask</Link>    
+                <Link to="/show" class="header-link">Show</Link>
+                <Link to="/favorites" class="header-link">Favorites</Link>
             </div>
             </header>
         </div>
