@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import Header from "./components/Header"
-import Stories from "./components/Stories"
+import Pages from "./components/Pages"
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div id="app-container">
       <Header/>
       <div id="route-container">
-        <Stories/>
+        <Pages/>
       </div>
     </div>
   )

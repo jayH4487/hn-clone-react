@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from "react"
+import {useLocation} from "react-router-dom"
 
 import Story from "./Story"
 
-function Stories({path}) {
+function Item(props) {
+    const location = useLocation()
+    const query = new URLSearchParams(location.search)
 
-    const [stories, setStories] = useState([])
+    const [story, setStory] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
     
     
-    const url = `https://node-hnapi.herokuapp.com/${path}`
+    const url = `https://node-hnapi.herokuapp.com/item/${query.get("id")}`
     useEffect(() => {
         (async function getStories() {
             setIsError(false)
@@ -17,25 +20,21 @@ function Stories({path}) {
 
             try {
                 const response = await fetch(url)
-                const stories = await response.json()
-                setStories(stories)
+                const story = await response.json()
+                setStory(story)
             } catch (error) {
                 setIsError(true)
             }
 
             setIsLoading(false)
         })()
-    }, [path])
-
+    }, [])
 
     return (
         <div>
-            {isError && "Error..."}
-            {isLoading ? "Loading..." :
-            stories.map((story, i) => <Story key={story.id} story={story} index={i + 1}/>)
-            }
+            <Story story={story}/>
         </div>
     )
 }
 
-export default Stories
+export default Item
