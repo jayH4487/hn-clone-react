@@ -4,7 +4,7 @@ Hacker News clone built using react
 
 Based on a project created in the [scrimba.com JavaScript Bootcamp course](https://scrimba.com/g/gjavascript)
 
-## Tutorials/Articles
+## Tutorials/Articles/Docs
 
 * [scrimba.com - Learn React for free](https://scrimba.com/g/glearnreact)
 * [scrimba.com - Become a professional React developer](https://scrimba.com/g/greact)
