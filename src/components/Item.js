@@ -1,18 +1,22 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import {useLocation} from "react-router-dom"
 
+import {Context} from "../Context"
 import Story from "./Story"
+import Comment from "./Comment"
 
 function Item(props) {
     const location = useLocation()
     const query = new URLSearchParams(location.search)
 
     const [story, setStory] = useState([])
+    const [comments, setComments] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
     
+    const baseUrl = useContext(Context)
     
-    const url = `https://node-hnapi.herokuapp.com/item/${query.get("id")}`
+    const url = `${baseUrl}/item/${query.get("id")}`
     useEffect(() => {
         (async function getStories() {
             setIsError(false)
@@ -22,6 +26,7 @@ function Item(props) {
                 const response = await fetch(url)
                 const story = await response.json()
                 setStory(story)
+                setComments(story.comments)
             } catch (error) {
                 setIsError(true)
             }
@@ -29,10 +34,21 @@ function Item(props) {
             setIsLoading(false)
         })()
     }, [])
+    
 
     return (
         <div>
-            <Story story={story}/>
+            {isError ? "Error..." :
+            isLoading ? "Loading..." :
+            <>
+                <div>
+                    <Story story={story}/>
+                </div>
+                <hr/>
+                {comments.map(comment => <Comment key={comment.id} comment={comment} />)
+                }
+            </>
+            }
         </div>
     )
 }

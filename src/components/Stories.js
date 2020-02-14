@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 
+import {Context} from "../Context"
 import Story from "./Story"
 
 function Stories({path}) {
@@ -8,8 +9,9 @@ function Stories({path}) {
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
     
-    
-    const url = `https://node-hnapi.herokuapp.com/${path}`
+    const {baseUrl, favorites, addFavorite, removeFavorite} = useContext(Context)
+
+    const url = `${baseUrl}/${path}`
     useEffect(() => {
         (async function getStories() {
             setIsError(false)
@@ -27,12 +29,24 @@ function Stories({path}) {
         })()
     }, [path])
 
+    const viewStories = stories.map((story, i) => {
+        return (
+            <Story
+                key={story.id}
+                story={story}
+                index={i + 1}
+                isFavorite={favorites.some(id => id === story.id)}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+            />
+            )  
+        })
 
     return (
         <div>
             {isError && "Error..."}
             {isLoading ? "Loading..." :
-            stories.map((story, i) => <Story key={story.id} story={story} index={i + 1}/>)
+            viewStories
             }
         </div>
     )

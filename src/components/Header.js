@@ -1,5 +1,5 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 
 function Header() {
     return (
@@ -14,15 +14,55 @@ function Header() {
                 />
                 HackerNews
                 </span>
-                <Link to="/" className="header-link">top</Link>
+                <NavLink
+                    exact to="/"
+                    className="header-link"
+                    activeStyle={{
+                        color: "white"
+                    }}
+                >
+                    top
+                </NavLink>
                 |  
-                <Link to="/new" className="header-link">new</Link>
+                <NavLink
+                    to="/new"
+                    className="header-link"
+                    activeStyle={{
+                        color: "white"
+                    }}
+                >
+                    new
+                </NavLink>
                 |
-                <Link to="/ask" className="header-link">ask</Link>
+                <NavLink
+                    to="/ask"
+                    className="header-link"
+                    activeStyle={{
+                        color: "white"
+                    }}
+                >
+                    ask
+                </NavLink>
                 |
-                <Link to="/show" className="header-link">show</Link>
+                <NavLink
+                    to="/show"
+                    className="header-link"
+                    activeStyle={{
+                        color: "white"
+                    }}
+                >
+                    show
+                </NavLink>
                 |
-                <Link to="/favorites" className="header-link">favorites</Link>
+                <NavLink
+                    to="/favorites"
+                    className="header-link"
+                    activeStyle={{
+                        color: "white"
+                    }}
+                >
+                    favorites
+                </NavLink>
             </div>
             </header>
         </div>

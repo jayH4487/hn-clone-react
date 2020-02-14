@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-function Story({index, story}) {
+function Story({index, story, isFavorite, addFavorite, removeFavorite}) {
     return (
         <div className="story">
             <div>
@@ -19,9 +19,9 @@ function Story({index, story}) {
                         {story.comments_count} comments
                     </Link>
                     {" | "}
-                    <span className="favorite">
+                    <span className="favorite" onClick={() => isFavorite ? removeFavorite(story.id) : addFavorite(story.id)}>
                         <img className="heart" src="https://icon.now.sh/heart/ccc" alt=""/>
-                        {" Add To Favorites"}
+                        {isFavorite ? " Remove From Favorites" : " Add To Favorites"}
                     </span>
                 </div>
             </div>
