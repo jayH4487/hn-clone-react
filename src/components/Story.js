@@ -19,7 +19,7 @@ function Story({index, story, isFavorite, addFavorite, removeFavorite}) {
                         {story.comments_count} comments
                     </Link>
                     {" | "}
-                    <span className="favorite" onClick={() => isFavorite ? removeFavorite(story.id) : addFavorite(story.id)}>
+                    <span className="favorite" onClick={() => isFavorite ? removeFavorite(story) : addFavorite(story)}>
                         <img className="heart" src="https://icon.now.sh/heart/ccc" alt=""/>
                         {isFavorite ? " Remove From Favorites" : " Add To Favorites"}
                     </span>

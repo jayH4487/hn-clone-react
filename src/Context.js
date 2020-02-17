@@ -8,12 +8,12 @@ function ContextProvider(props) {
     const [favorites, setFavorites] = useState([])
 
     
-    function addFavorite(storyId) {
-        setFavorites(prev => [...prev, storyId])
+    function addFavorite(story) {
+        setFavorites(prev => [...prev, story])
     }
 
-    function removeFavorite(storyId) {
-        setFavorites(prev => prev.filter(favorite => favorite !== storyId))
+    function removeFavorite(story) {
+        setFavorites(prev => prev.filter(favorite => favorite.id !== story.id))
     }
 
     return (

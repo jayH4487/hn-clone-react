@@ -156,6 +156,7 @@ input {
 
 .header-link {
   margin-left: 0.2rem;
+  margin-right: 0.2rem;
   /* color: black !important; */
   text-decoration: none;
 }

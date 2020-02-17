@@ -35,7 +35,7 @@ function Stories({path}) {
                 key={story.id}
                 story={story}
                 index={i + 1}
-                isFavorite={favorites.some(id => id === story.id)}
+                isFavorite={favorites.some(favoriteStory => favoriteStory.id === story.id)}
                 addFavorite={addFavorite}
                 removeFavorite={removeFavorite}
             />

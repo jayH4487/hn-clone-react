@@ -3,6 +3,7 @@ import {Switch, Route} from "react-router-dom"
 
 import Stories from "./Stories"
 import Item from "./Item"
+import Favorites from "./Favorites"
 
 function Pages() {
     return (
@@ -25,7 +26,7 @@ function Pages() {
                 </Route>
 
                 <Route path="/favorites">
-                    Favorites
+                    <Favorites />
                 </Route>
 
                 <Route path="/item">

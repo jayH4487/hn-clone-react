@@ -1,5 +1,5 @@
 import React from "react"
-import {Link, NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 
 function Header() {
     return (
@@ -7,12 +7,12 @@ function Header() {
             <header className="header">
             <div className="flex">
                 <span className="header-title">
-                <img
-                    src="https://icon.now.sh/ycombinator/fff"
-                    alt=""
-                    className="header-logo"
-                />
-                HackerNews
+                    <img
+                        src="https://icon.now.sh/ycombinator/fff"
+                        alt=""
+                        className="header-logo"
+                    />
+                    HackerNews
                 </span>
                 <NavLink
                     exact to="/"
