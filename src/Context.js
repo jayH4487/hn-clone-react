@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 
 const Context = React.createContext()
 
@@ -15,6 +15,15 @@ function ContextProvider(props) {
     function removeFavorite(story) {
         setFavorites(prev => prev.filter(favorite => favorite.id !== story.id))
     }
+
+    useEffect(() => {
+        const favoritesFromStorage = JSON.parse(localStorage.getItem("favorites")) || []
+        setFavorites(favoritesFromStorage)
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+    }, [favorites])
 
     return (
         <Context.Provider value={ {baseUrl, favorites, addFavorite, removeFavorite} }>
