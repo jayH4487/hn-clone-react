@@ -5,7 +5,7 @@ import {Context} from "../Context"
 import Story from "./Story"
 import Comment from "./Comment"
 
-function Item(props) {
+function Item() {
     const location = useLocation()
     const query = new URLSearchParams(location.search)
 
@@ -14,9 +14,10 @@ function Item(props) {
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
     
-    const baseUrl = useContext(Context)
+    const {baseUrl} = useContext(Context)
     
-    const url = `https://node-hnapi.herokuapp.com/item/${query.get("id")}`
+    const url = `${baseUrl}/item/${query.get("id")}`
+    console.log({baseUrl})
     useEffect(() => {
         (async function getStories() {
             setIsError(false)
