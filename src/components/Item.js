@@ -16,7 +16,7 @@ function Item(props) {
     
     const baseUrl = useContext(Context)
     
-    const url = `${baseUrl}/item/${query.get("id")}`
+    const url = `https://node-hnapi.herokuapp.com/item/${query.get("id")}`
     useEffect(() => {
         (async function getStories() {
             setIsError(false)
