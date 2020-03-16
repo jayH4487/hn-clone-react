@@ -1,6 +1,6 @@
 # Hacker News Clone
 
-Hacker News clone built using react
+Hacker News clone built using react. [demo](https://jayh4487.github.io/hn-clone-react/)
 
 Based on a project created in the [scrimba.com JavaScript Bootcamp course](https://scrimba.com/g/gjavascript)
 
